@@ -1,0 +1,12 @@
+build/
+.gemini/
+.agent/
+bin/
+lib/
+*.o
+*.so
+*.a
+.vscode/
+.idea/
+*.swp
+*.user
