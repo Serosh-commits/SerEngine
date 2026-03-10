@@ -33,6 +33,7 @@ find_library(EPOXY_LIB epoxy REQUIRED)
 
 include_directories(
     src
+    vendor/stb_image
     ${SDL2_INCLUDE_DIRS}
     ${OPENGL_INCLUDE_DIR}
     ${spdlog_SOURCE_DIR}/include
