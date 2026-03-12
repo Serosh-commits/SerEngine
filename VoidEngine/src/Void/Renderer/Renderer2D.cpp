@@ -205,7 +205,11 @@ namespace Void {
                 
                 texColor *= sampledColor;
 
-                if (texColor.a < 0.1 || (texColor.r > 0.99 && texColor.g > 0.99 && texColor.b > 0.99))
+                if (texColor.a < 0.1)
+                    discard;
+                
+                // Color keying for pure white background (usually for sprite sheets)
+                if (texColor.r > 0.999 && texColor.g > 0.999 && texColor.b > 0.999 && id > 0)
                     discard;
 
                 vec3 diffuse = u_AmbientColor * u_AmbientIntensity;
