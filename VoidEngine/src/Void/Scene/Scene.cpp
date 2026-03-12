@@ -45,7 +45,7 @@ namespace Void {
 
     void Scene::OnRenderRuntime(Timestep ts, const OrthographicCamera& camera) {
         Renderer2D::BeginScene(camera);
-        Renderer2D::SetAmbientLight(0.08f, { 0.5f, 0.5f, 0.7f });
+        Renderer2D::SetAmbientLight(0.12f, { 0.5f, 0.5f, 0.7f });
 
         SubmitLights();
         SubmitSpotlights();
