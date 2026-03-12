@@ -196,12 +196,15 @@ private:
             case Void::AIChaseComponent::State::Chasing:
                 if (canSeePlayer) {
                     ai.LoseTargetTimer = 0.0f;
+                    GetComponent<Void::LightSourceComponent>().Intensity = 1.8f;
+                    GetComponent<Void::LightSourceComponent>().Radius = 5.0f;
                     if (distance < ai.AttackRadius) {
                         ai.CurrentState = Void::AIChaseComponent::State::Attacking;
                     } else {
-                        MoveToward(transform, toPlayer, ai.Speed * dt);
+                        MoveToward(transform, toPlayer, ai.Speed * 1.5f * dt);
                     }
                 } else {
+                    GetComponent<Void::LightSourceComponent>().Intensity = 0.5f;
                     ai.LoseTargetTimer += dt;
                     if (ai.LoseTargetTimer >= ai.MaxLoseTargetTime) {
                         ai.CurrentState = Void::AIChaseComponent::State::Searching;
@@ -506,11 +509,12 @@ private:
 
         g_Game.Health -= ATTACK_DAMAGE_RATE * dt;
         if (!g_Shake.IsActive())
-            g_Shake.Trigger(0.12f, 0.25f);
+            g_Shake.Trigger(0.25f, 0.45f, 90.0f);
 
         if (g_Game.Health <= 0.0f) {
             g_Game.Health = 0.0f;
             g_Game.State = Void::GameState::GameOver;
+            g_Shake.Trigger(0.8f, 1.2f, 15.0f);
         }
     }
 
