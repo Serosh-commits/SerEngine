@@ -35,5 +35,3 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/lib
 ./bin/Sandbox
 ```
 
-## Current State
-Right now it just renders a single triangle that you can move around with the arrow keys. It's not much yet, but the plumbing (Shaders -> Buffers -> Renderer -> Window) is solid.
